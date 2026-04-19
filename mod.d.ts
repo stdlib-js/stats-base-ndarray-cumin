@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,22 +16,26 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { ndarray, typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Compute the cumulative minimum value of a one-dimensional ndarray.
+* Computes the cumulative minimum value of a one-dimensional ndarray.
 *
-* @module @stdlib/stats-base-ndarray-cumin
+* @param arrays - array-like object containing an input ndarray and an output ndarray
+* @returns output ndarray
 *
 * @example
 * var ndarray = require( '@stdlib/ndarray-base-ctor' );
-* var cumin = require( '@stdlib/stats-base-ndarray-cumin' );
 *
 * var xbuf = [ 1.0, 3.0, 4.0, 2.0 ];
 * var x = new ndarray( 'generic', xbuf, [ 4 ], [ 1 ], 0, 'row-major' );
 *
 * var ybuf = [ 0.0, 0.0, 0.0, 0.0 ];
-* var y = new ndarray( 'generic', xbuf, [ 4 ], [ 1 ], 0, 'row-major' );
+* var y = new ndarray( 'generic', ybuf, [ 4 ], [ 1 ], 0, 'row-major' );
 *
 * var v = cumin( [ x, y ] );
 * // returns <ndarray>[ 1.0, 1.0, 1.0, 1.0 ]
@@ -39,12 +43,9 @@
 * var bool = ( v === y );
 * // returns true
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function cumin<T extends typedndarray<unknown> = typedndarray<unknown>>( arrays: [ ndarray, T ] ): T;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = cumin;
